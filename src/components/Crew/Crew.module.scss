@@ -1,0 +1,61 @@
+@use '../../styles/mixins' as mixins;
+@use '../../styles/variables' as vars;
+
+.container {
+    @include mixins.flex-column(center);
+    height: 100%;
+    margin: 24px;   
+}
+
+.crew__texts {
+    @include mixins.flex-column(center);
+}
+
+.crew__details {
+    @include mixins.flex-column(center);
+    margin-top: 40px;
+}
+
+.crew__title {
+    @include mixins.flex-column(center, center, 8px);
+
+}
+
+.crew__info {
+    @include mixins.flex-column(center, center, 24px);
+
+}
+
+.crew__bio {
+    min-height: 164px;
+}
+
+
+.crew__pages {
+    @include mixins.flex-row(start, center, 16px);
+    margin-top: 24px;
+}
+
+.crew__page_item {
+    border-radius: 100%;
+    width: 10px;
+    height: 10px;
+    background-color: vars.$white;
+    opacity: 17.5%;
+}
+
+.crew__page_item.active {
+    opacity: 100%;
+}
+
+.img_container {
+    max-width: 270px;
+    width: 100%;
+    margin-top: 32px;
+}
+
+.img_container img {
+    width: 100%;
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 70%, rgba(0, 0, 0, 0) 100%);
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 70%, rgba(0, 0, 0, 0) 100%);
+}
