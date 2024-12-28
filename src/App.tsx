@@ -13,6 +13,7 @@ import { NAV_LINKS } from './components/Header/MobileMenuDrawer'
 function Main() {
   const { pathname } = useLocation();
   const {isMobile, isTablet, isDesktop} = useDeviceSize();
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   const backgroundImage = React.useMemo(() => {
     const size = isMobile ? "mobile" : isTablet ? "tablet" : "desktop";
@@ -22,6 +23,14 @@ function Main() {
     
     return `url(/assets/${navName}/background-${navName}-${size}.jpg)`;
   }, [pathname, isMobile, isTablet, isDesktop]);
+
+  React.useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden'; 
+    } else {
+      document.body.style.overflow = ''; 
+    }
+  }, [isMenuOpen]);
 
   return (
     <div 
@@ -35,7 +44,7 @@ function Main() {
         width: '100vw',
       }}
     >
-      <Header />
+      <Header isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen}/>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/destination/:id" element={<Destination />} />

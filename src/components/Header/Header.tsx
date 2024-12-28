@@ -6,8 +6,11 @@ import MobileMenuDrawer from './MobileMenuDrawer';
 import useViewportSize from '../../hooks/useViewportSize';
 import { useLocation } from 'react-router-dom';
 
-export default function Header () {
-    const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+interface HeaderProps {
+    isMenuOpen: boolean;
+    setIsMenuOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
+export default function Header ({isMenuOpen, setIsMenuOpen}: HeaderProps) {
     const {width} = useViewportSize();
     const { pathname } = useLocation();
 
