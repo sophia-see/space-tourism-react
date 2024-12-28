@@ -12,14 +12,4 @@
 
 #App {
     color: vars.$white;
-
-    // Tablet view
-    @media (min-width: 768px) {
-        @include mixins.background-image('assets/home/background-home-tablet.jpg');
-    }
-
-    // Desktop view
-    @media (min-width: 1024px) {
-        @include mixins.background-image('assets/home/background-home-desktop.jpg');
-    }
 }

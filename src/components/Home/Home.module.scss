@@ -1,0 +1,24 @@
+@use '../../styles/mixins' as mixins;
+@use '../../styles/variables' as vars;
+
+.container {
+    @include mixins.flex-column(center, start, 0);
+    margin: 24px 24px 0 24px;
+    height: calc(100dvh - 88px - 24px); // 88px header height, 24px margin of this container
+    justify-content: space-between;
+}
+
+.hero__texts {
+    @include mixins.flex-column(center, start, 24px);
+}
+
+.hero__btn {
+    margin: auto;
+}
+
+.btn {
+    border-radius: 100%;
+    background-color: vars.$white;
+    color: vars.$blue-900;
+    padding: 61.5px 33.5px;
+}
