@@ -1,0 +1,53 @@
+@use '../../styles/mixins' as mixins;
+@use '../../styles/variables' as vars;
+
+.container {
+    @include mixins.flex-column(center);
+    height: 100%;
+}
+
+.step_cotainer {
+    margin: 24px;
+}
+
+.technology__img {
+    width: 100%;
+    height: 258px;
+    margin: 64px 0 32px 0;
+}
+
+.technology__tabs {
+    @include mixins.flex-row(center, center, 16px);
+}
+
+.technology__tab_item {
+    @include mixins.flex-row(center, center);
+    color: vars.$white;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    background-color: transparent;
+    border: 1px solid vars.$quarter-white;
+}
+
+.technology__tab_item.active {
+    color: vars.$blue-900;
+    background-color: vars.$white;
+    border: none;
+}
+
+.technology__details {
+    @include mixins.flex-column(center, center, 40px);
+
+    margin: 0 24px;
+}
+
+.technology__title{
+    @include mixins.flex-column(center, center, 16px);
+}
+
+.technology__info{
+    @include mixins.flex-column(center, center, 16px);
+
+    padding-bottom: 48px;
+}

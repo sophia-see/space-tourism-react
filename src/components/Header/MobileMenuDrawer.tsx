@@ -17,7 +17,7 @@ export default function MobileMenuDrawer ({setIsMenuOpen}: MobileMenuDrawerProps
 
     return (
         <div className={`${styles.menu__drawer} `}>
-            <img className={styles.menu__close} src={"assets/shared/icon-close.svg"} alt={"close button"} onClick={() => setIsMenuOpen(false)}/>
+            <img className={styles.menu__close} src={"/assets/shared/icon-close.svg"} alt={"close button"} onClick={() => setIsMenuOpen(false)}/>
             <ul className={styles.nav__list}>
                 {NAV_LINKS.map((link, index) => (
                     <li key={index} className={`${styles.nav__link} text-8`}><NavLink to={link.path}><span className="bold">{addLeadingZero(index)}</span> {link.name}</NavLink></li>
