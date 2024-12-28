@@ -1,0 +1,67 @@
+@use '../../styles/mixins' as mixins;
+@use '../../styles/variables' as var;
+
+header {
+    position: relative;
+    z-index: 1;
+    color: white;
+    width: 100dvw;
+}
+
+nav {
+    @include mixins.flex-row(center, space-between);
+    padding: 24px;
+
+}
+
+a {
+    text-decoration: none;
+    color: var.$white;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+    color: var.$white;
+    padding: 0;
+}
+
+.nav__list {
+    @include mixins.flex-column(start, space-between, 32px);
+    margin-left: 32px;
+}
+
+.menu__drawer {
+    @include mixins.flex-column(start, start, 48px);
+    width: 70%;
+    height: 100dvh;
+    background-color: var.$blue-900-blur;
+    backdrop-filter: blur(80px);
+    position: absolute;
+    top: 0;
+    right: 0;
+
+}
+
+.nav__link {
+    text-transform: uppercase;
+}
+
+.menu__close {
+    place-self: end;
+    padding: 32px 24px;
+}
+
+.mobile__logo {
+    width: 40px;
+    height: 40px;
+}
+
+.mobile__burger {
+    width: 24px;
+    height: 21px;
+}

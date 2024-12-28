@@ -1,0 +1,27 @@
+@mixin flex-column($align-items: start, $justify-content: start, $gap: 8px) {
+    display: flex;
+    flex-direction: column;
+    align-items: $align-items;
+    justify-content: $justify-content;
+    gap: $gap;
+}
+
+@mixin flex-row($align-items: start, $justify-content: start, $gap: 8px) {
+    display: flex;
+    flex-direction: row;
+    align-items: $align-items;
+    justify-content: $justify-content;    
+    gap: $gap;
+}
+
+@mixin background-image($url, $size: cover, $repeat: no-repeat) {
+    background-image: $url;
+    background-size: $size;
+    background-repeat: $repeat;
+    height: 100dvh;
+    width: 100dvw;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 0;
+}
