@@ -1,5 +1,5 @@
 import styles from './Header.module.scss';
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { addLeadingZero } from '../../utils/helpers';
 import React from 'react';
 
@@ -7,7 +7,7 @@ interface MobileMenuDrawerProps {
     setIsMenuOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const links = [
+export const NAV_LINKS = [
     {name: 'Home', path: '/'},
     {name: 'Destination', path: '/destination'},
     {name: 'Crew', path: '/crew'},
@@ -19,7 +19,7 @@ export default function MobileMenuDrawer ({setIsMenuOpen}: MobileMenuDrawerProps
         <div className={`${styles.menu__drawer} `}>
             <img className={styles.menu__close} src={"assets/shared/icon-close.svg"} alt={"close button"} onClick={() => setIsMenuOpen(false)}/>
             <ul className={styles.nav__list}>
-                {links.map((link, index) => (
+                {NAV_LINKS.map((link, index) => (
                     <li key={index} className={`${styles.nav__link} text-8`}><NavLink to={link.path}><span className="bold">{addLeadingZero(index)}</span> {link.name}</NavLink></li>
                 ))}
             </ul>

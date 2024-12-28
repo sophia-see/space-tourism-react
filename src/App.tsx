@@ -7,8 +7,8 @@ import Technology from './components/Technology/Technology'
 import NotFound from './components/NotFound'
 import Header from './components/Header/Header'
 import React from 'react'
-import useViewportSize from './hooks/useViewportSize'
 import useDeviceSize from './hooks/useDeviceSize'
+import { NAV_LINKS } from './components/Header/MobileMenuDrawer'
 
 function Main() {
   const { pathname } = useLocation();
@@ -17,16 +17,10 @@ function Main() {
   const backgroundImage = React.useMemo(() => {
     const size = isMobile ? "mobile" : isTablet ? "tablet" : "desktop";
 
-    switch (pathname) {
-      // case '/':
-      //   return `url(/assets/home/background-home-${size}.jpg)`;
-      case '/destination':
-      case '/crew':
-      case '/technology':
-        return `url(/assets${pathname}/background-${pathname.replace("/","")}-${size}.jpg)`;
-      default:
-        return `url(/assets/home/background-home-${size}.jpg)`;
-    }
+    const navPath = NAV_LINKS.find(link => pathname.startsWith(`/${link.name.toLowerCase()}`)) ?? NAV_LINKS[0];
+    const navName = navPath.name.toLowerCase();
+    
+    return `url(/assets/${navName}/background-${navName}-${size}.jpg)`;
   }, [pathname, isMobile, isTablet, isDesktop]);
 
   return (
