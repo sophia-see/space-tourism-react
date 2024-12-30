@@ -1,5 +1,12 @@
+import { useNavigate } from 'react-router-dom'
 import styles from './Home.module.scss'
 export default function Home () {
+    const navigate = useNavigate();
+
+    const handleClickExplore = () => {
+        navigate('/destination')
+    };
+
     return (
         <div className={styles.container}>
             <div className={styles.hero__texts}>
@@ -8,7 +15,7 @@ export default function Home () {
                 <div className="text-9 text-center text-blue-300">Let’s face it; if you want to go to space, you might as well genuinely go to outer space and not hover kind of on the edge of it. Well sit back, and relax because we’ll give you a truly out of this world experience!</div>
             </div>
             <div className={styles.hero__btn}>
-                <div className={`${styles.btn} text-4`}>EXPLORE</div>
+                <div className={`${styles.btn} text-4`} onClick={handleClickExplore}>EXPLORE</div>
             </div>
         </div>
     )
