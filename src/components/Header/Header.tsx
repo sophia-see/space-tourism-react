@@ -3,15 +3,15 @@ import './Header.module.scss';
 import MainHeader from './MainHeader';
 import MobileHeader from './MobileHeader';
 import MobileMenuDrawer from './MobileMenuDrawer';
-import useViewportSize from '../../hooks/useViewportSize';
 import { useLocation, useNavigate } from 'react-router-dom';
+import useDeviceSize from '../../hooks/useDeviceSize';
 
 interface HeaderProps {
     isMenuOpen: boolean;
     setIsMenuOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 export default function Header ({isMenuOpen, setIsMenuOpen}: HeaderProps) {
-    const {width} = useViewportSize();
+    const { isMobile } = useDeviceSize();
     const { pathname } = useLocation();
     const navigate = useNavigate();
 
@@ -23,12 +23,9 @@ export default function Header ({isMenuOpen, setIsMenuOpen}: HeaderProps) {
         setIsMenuOpen(false);
     }, [pathname]);
 
-    const renderHeader = React.useMemo(() => { 
-        if (width > 768) {
-            return <MainHeader />;
-        }
-        return <MobileHeader setIsMenuOpen={setIsMenuOpen} navigateToHome={navigateToHome}/>;
-    }, [width]);
+    const renderHeader = React.useMemo(() => {
+        return isMobile ? <MobileHeader setIsMenuOpen={setIsMenuOpen} navigateToHome={navigateToHome}/> : <MainHeader />;
+    }, [isMobile]);
 
 
 

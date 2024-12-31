@@ -5,10 +5,11 @@ import { useNavigate, useParams } from 'react-router-dom';
 export default function Crew () {
     const { id } = useParams();
     const navigate = useNavigate();
-
+    
     const crews = data.crew;
+    const crewIndex = crews.findIndex(i => i.name.toLowerCase().replace(" ", "-") == (id as string)) ?? crews[0];
     const crew = crews.find(i => i.name.toLowerCase().replace(" ", "-") == (id as string)) ?? crews[0];
-
+  
     const handleSelectCrew = (crew: any) => {
         if (crew.name !== id) {
             navigate(`/crew/${crew.name.toLowerCase().replace(" ", "-")}`);     

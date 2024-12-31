@@ -12,6 +12,9 @@ nav {
     @include mixins.flex-row(center, space-between);
     padding: 24px;
 
+    @media screen and (min-width: 768px) {
+        padding: 0;
+    }
 }
 
 a {
@@ -31,11 +34,54 @@ li {
     color: var.$white;
     padding: 0;
     width: 100%;
+
+    @media screen and (min-width: 768px) {
+        width: auto;
+    }
 }
 
 .nav__list {
     @include mixins.flex-column(start, space-between, 32px);
     margin-left: 32px;
+
+    @media screen and (min-width: 768px) {
+        @include mixins.flex-row(start, space-between, 48px);
+
+        width: auto;
+        padding: 0 40px;
+        backdrop-filter: blur(80px);
+        background-color: var.$white-5;
+    }
+}
+
+.is_selected::after {
+    display: block;
+    content: '';
+    border-bottom: solid 4px var.$white;
+    position: absolute; 
+    bottom: 0; 
+    left: 0;
+    right: 0;
+    transform: scaleX(0);
+    transition: all 0.3s ease; 
+    transform-origin: center;
+}
+
+.is_selected.active::after {
+    transform: scaleX(1);
+}
+
+.nav__item {
+    position: relative;
+    height: 100%;
+    padding: 40px 0;
+}
+
+.nav__item:first-child {
+    @media screen and (min-width: 768px) {
+        
+        margin-left: 40px;
+    }
 }
 
 .menu__drawer {
@@ -62,6 +108,10 @@ li {
 .mobile__logo {
     width: 40px;
     height: 40px;
+
+    @media screen and (min-width: 768px) {
+        margin: 24px 40px;
+    }
 }
 
 .mobile__burger {

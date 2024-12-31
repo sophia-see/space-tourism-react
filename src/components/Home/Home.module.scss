@@ -6,19 +6,43 @@
     margin: 24px 24px 0 24px;
     height: calc(100dvh - 88px - 24px); // 88px header height, 24px margin of this container
     justify-content: space-between;
+
+    @media screen and (min-width: 768px) {
+        height: 100%;
+        padding: 128px 40px;
+    }
 }
 
 .hero__texts {
     @include mixins.flex-column(center, start, 24px);
+
+    @media screen and (min-width: 768px) {
+        height: 100%;
+        padding: 0 88px;
+    }
 }
 
 .hero__btn {
     margin: auto;
+    padding: 119px 0;
+
+    @media screen and (min-width: 768px) {
+        padding: 66px 0;
+    }
 }
 
 .btn {
     border-radius: 100%;
     background-color: vars.$white;
     color: vars.$blue-900;
-    padding: 61.5px 33.5px;
+    width: 144px;
+    height: 144px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @media screen and (min-width: 768px) {
+        width: 272px;
+        height: 272px;
+    }
 }
