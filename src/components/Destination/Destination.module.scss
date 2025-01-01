@@ -27,7 +27,7 @@
 
     @media screen and (min-width: 1024px) {
         @include mixins.flex-row(start, start, 32px);
-        padding: 127px 0;
+        padding: 127px none;
     }
 }
 
