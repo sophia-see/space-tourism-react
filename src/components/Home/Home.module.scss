@@ -11,6 +11,12 @@
         height: 100%;
         padding: 128px 40px;
     }
+
+    @media screen and (min-width: 1024px) {
+        @include mixins.flex-row(center, space-between, 0);
+        margin: 128px 165px;
+        padding: 0;
+    }
 }
 
 .hero__texts {
@@ -20,6 +26,12 @@
         height: 100%;
         padding: 0 88px;
     }
+
+    @media screen and (min-width: 1024px) {
+        padding: 0;
+        max-width: 540px;
+        align-items: start;
+    }
 }
 
 .hero__btn {
@@ -28,6 +40,11 @@
 
     @media screen and (min-width: 768px) {
         padding: 66px 0;
+    }
+
+    @media screen and (min-width: 1024px) {
+        padding: 0;
+        margin: 0;
     }
 }
 
