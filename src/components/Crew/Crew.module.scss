@@ -1,6 +1,23 @@
 @use '../../styles/mixins' as mixins;
 @use '../../styles/variables' as vars;
 
+$transition: all 0.15s ease-out;
+
+div {
+    transition: $transition;
+    opacity: 1;
+}
+
+.fade-out {
+    opacity: 0; /* Fades out the image */
+    // transform: scale(0.95); /* Optional: Add a shrinking effect */
+}
+
+.fade-in {
+    opacity: 1; /* Fades in the new image */
+    // transform: scale(1); /* Restores the scale */
+}
+
 .container {
     @include mixins.flex-column(center);
     height: 100%;
@@ -85,6 +102,11 @@
     height: 10px;
     background-color: vars.$white;
     opacity: 17.5%;
+}
+
+.crew__page_item:hover {
+    cursor: pointer;
+    opacity: 50%;
 }
 
 .crew__page_item.active {
