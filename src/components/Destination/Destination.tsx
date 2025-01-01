@@ -1,10 +1,12 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import styles from './Destination.module.scss';
 import data from '../../utils/data.json';
+import useDeviceSize from '../../hooks/useDeviceSize';
 
 export default function Destination () {
     const { id } = useParams();
     const navigate = useNavigate();
+    const { isDesktop } = useDeviceSize();
 
     const destinations = data.destinations;
     const destination = destinations.find(i => i.name.toLowerCase() == (id as string)) ?? destinations[0];
@@ -35,18 +37,18 @@ export default function Destination () {
                         })}
                     </div>
                     <div className="text-2">{destination?.name?.toUpperCase()}</div>
-                    <div className="text-9 text-center text-blue-300">
+                    <div className={`text-9 ${isDesktop ? "" : "text-center"} text-blue-300`}>
                         {destination?.description}
                     </div>
                     <div className={styles.divider}></div>
                     <div className={styles.destination__stats}>
                         <div className={styles.destination__stat_item}>
-                            <div className="text-7 text-center text-blue-300">AVG. DISTANCE</div>
-                            <div className="text-6-desktop text-center">{destination.distance.toUpperCase()}</div>
+                            <div className={`text-7 ${isDesktop ? "" : "text-center"} text-blue-300`}>AVG. DISTANCE</div>
+                            <div className={`text-6-desktop ${isDesktop ? "" : "text-center"}`}>{destination.distance.toUpperCase()}</div>
                         </div>
                         <div className={styles.destination__stat_item}>
-                            <div className="text-7 text-center text-blue-300">EST. TRAVEL TIME</div>
-                            <div className="text-6-desktop text-center">{destination.travel.toUpperCase()}</div>
+                            <div className={`text-7 ${isDesktop ? "" : "text-center"} text-blue-300`}>EST. TRAVEL TIME</div>
+                            <div className={`text-6-desktop ${isDesktop ? "" : "text-center"}`}>{destination.travel.toUpperCase()}</div>
                         </div>
                     </div>
                 </div>
