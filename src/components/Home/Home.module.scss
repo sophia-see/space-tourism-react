@@ -63,3 +63,8 @@
         height: 272px;
     }
 }
+
+.btn:hover {
+    cursor: pointer;
+    outline: 88px solid vars.$white-10;
+}
