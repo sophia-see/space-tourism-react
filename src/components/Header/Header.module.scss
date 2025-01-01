@@ -82,6 +82,11 @@ li {
     transform-origin: center;
 }
 
+.is_selected:not(.active):hover::after {
+    border-bottom: solid 4px var.$half-white;
+    transform: scaleX(1);
+}
+
 .is_selected.active::after {
     transform: scaleX(1);
 }
@@ -89,7 +94,6 @@ li {
 .nav__item {
     position: relative;
     height: 100%;
-    padding: 40px 0;
 }
 
 .nav__item:first-child {
@@ -116,6 +120,7 @@ li {
 
 .nav__link {
     text-transform: uppercase;
+    padding: 40px 0;
 }
 
 .menu__close {

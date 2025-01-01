@@ -19,7 +19,7 @@ export default function MainHeader ({ navigateToHome }: MainHeaderProps) {
                     const isActive = tempPath.startsWith(`/${link.name.toLowerCase()}`);
 
                     return <div className={styles.nav__item}>
-                        <li className={`${styles.nav__link} ${styles.is_selected} ${isActive ? styles.active : ""} text-8`}><NavLink to={link.path}><span className="bold">{addLeadingZero(index)}</span> {link.name}</NavLink></li>
+                        <NavLink to={link.path}><li className={`${styles.nav__link} ${styles.is_selected} ${isActive ? styles.active : ""} text-8`}><span className="bold">{addLeadingZero(index)}</span> {link.name}</li></NavLink>
                     </div>
                 })}
             </ul>
