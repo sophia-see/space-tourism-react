@@ -8,6 +8,18 @@
     @media screen and (min-width: 768px) {
         @include mixins.flex-column(start);
     }
+
+    @media screen and (min-width: 1024px) {
+        width: fit-content;
+        margin-left: auto;
+    }
+}
+
+.technology__container {
+    @media screen and (min-width: 1024px) {
+        @include mixins.flex-row(center, start, 32px);
+        width: fit-content;
+    }
 }
 
 .step_cotainer {
@@ -15,6 +27,10 @@
 
     @media screen and (min-width: 768px) {
         margin: 40px;
+    }
+
+    @media screen and (min-width: 1024px) {
+        margin: 0;
     }
 }
 
@@ -28,10 +44,23 @@
         height: 357px;
         margin-top: 44px;
     }
+
+    @media screen and (min-width: 1024px) {
+        order: 1;
+        width: 600px;
+        height: 600px;
+        aspect-ratio: 1/1;
+        margin: 0;
+    }
 }
 
 .technology__tabs {
     @include mixins.flex-row(center, center, 16px);
+
+    @media screen and (min-width: 1024px) {
+        flex-direction: column;
+        gap: 32px;
+    }
 }
 
 .technology__tab_item {
@@ -42,6 +71,16 @@
     border-radius: 100%;
     background-color: transparent;
     border: 1px solid vars.$quarter-white;
+
+    @media screen and (min-width: 768px) {
+        width: 56px;
+        height: 56px;
+    }
+
+    @media screen and (min-width: 1024px) {
+        width: 80px;
+        height: 80px;
+    }
 }
 
 .technology__tab_item.active {
@@ -58,14 +97,30 @@
     @media screen and (min-width: 768px){
         padding: 0 88px;
     }
+
+    @media screen and (min-width: 1024px) {
+        @include mixins.flex-row(start, start, 64px);
+        order: 0;
+        margin: 0;
+        padding: 0;
+    }
 }
 
 .technology__title{
     @include mixins.flex-column(center, center, 16px);
+
+    @media screen and (min-width: 1024px) {
+        align-items: start;
+    }
 }
 
 .technology__info{
     @include mixins.flex-column(center, center, 16px);
 
     padding-bottom: 48px;
+
+    @media screen and (min-width: 1024px) {
+        max-width: 491px;
+        align-items: start;
+    }
 }
