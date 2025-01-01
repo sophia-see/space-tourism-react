@@ -14,7 +14,8 @@ export default function MainHeader ({ navigateToHome }: MainHeaderProps) {
            <img className={styles.mobile__logo} src={"/assets/shared/logo.svg"} alt="SpaceX" onClick={navigateToHome}/>
             <ul className={styles.nav__list}>
                 {NAV_LINKS.map((link, index) => {
-                    const isActive = pathname == link.path.toLowerCase();
+                    const tempPath = pathname == "/" ? "/home" : pathname
+                    const isActive = tempPath.startsWith(`/${link.name.toLowerCase()}`);
 
                     return <div className={styles.nav__item}>
                         <li className={`${styles.nav__link} ${styles.is_selected} ${isActive ? styles.active : ""} text-8`}><NavLink to={link.path}><span className="bold">{addLeadingZero(index)}</span> {link.name}</NavLink></li>

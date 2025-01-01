@@ -5,15 +5,27 @@
     @include mixins.flex-column(center);
     height: 100%;
     margin: 24px;   
+
+    @media screen and (min-width: 768px) {
+        padding: 40px;
+    }
 }
 
 .crew__texts {
     @include mixins.flex-column(center);
+    
+    @media screen and (min-width: 768px) {
+        align-items: start;
+    }
 }
 
 .crew__details {
     @include mixins.flex-column(center);
     margin-top: 40px;
+
+    @media screen and (min-width: 768px) {
+        padding: 0 88px;
+    }
 }
 
 .crew__title {
@@ -34,6 +46,7 @@
 .crew__pages {
     @include mixins.flex-row(start, center, 16px);
     margin-top: 24px;
+    margin: auto;
 }
 
 .crew__page_item {

@@ -4,10 +4,18 @@
 .container {
     @include mixins.flex-column(center);
     height: 100%;
+    
+    @media screen and (min-width: 768px) {
+        @include mixins.flex-column(start);
+    }
 }
 
 .step_cotainer {
     margin: 24px;
+
+    @media screen and (min-width: 768px) {
+        margin: 40px;
+    }
 }
 
 .technology__img {
@@ -15,6 +23,11 @@
     height: 258px;
     object-fit: cover;
     margin: 64px 0 32px 0;
+
+    @media screen and (min-width: 768px) {
+        height: 357px;
+        margin-top: 44px;
+    }
 }
 
 .technology__tabs {
@@ -41,6 +54,10 @@
     @include mixins.flex-column(center, center, 40px);
 
     margin: 0 24px;
+
+    @media screen and (min-width: 768px){
+        padding: 0 88px;
+    }
 }
 
 .technology__title{

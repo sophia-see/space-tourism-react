@@ -4,16 +4,30 @@
 .container {
     @include mixins.flex-column(center);
     margin: 24px;   
+
+    @media screen and (min-width: 768px) {
+        align-items: start;
+        padding: 40px;
+    }
 }
 
 .destination__details {
     @include mixins.flex-column(center);
+
+    @media screen and (min-width: 768px) {
+        padding: 11.5px 87px;
+    }
 }
 
 .destination__img {
     width: 150px;
     height: 150px;
     margin: 26.5px 0;
+
+    @media screen and (min-width: 768px) {
+        width: 300px;
+        height: 300px;
+    }
 }
 
 .destination__info {
@@ -47,10 +61,18 @@
 
 .destination__stats {
     @include mixins.flex-column(center, center, 24px);
+
+    @media screen and (min-width: 768px) {
+        @include mixins.flex-row(center, center, 24px);
+    }
 }
 
 .destination__stat_item {
     @include mixins.flex-column(center, center, 12px);
+
+    @media screen and (min-width: 768px) {
+        min-width: 245px;
+    }
 }
 
 .divider {
