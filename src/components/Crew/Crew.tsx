@@ -11,7 +11,6 @@ export default function Crew () {
     const [transitionClass, setTransitionClass] = React.useState('');
     
     const crews = data.crew;
-    const crewIndex = crews.findIndex(i => i.name.toLowerCase().replace(" ", "-") == (id as string)) ?? crews[0];
     const crew = crews.find(i => i.name.toLowerCase().replace(" ", "-") == (id as string)) ?? crews[0];
   
     const handleSelectCrew = (crew: any) => {
