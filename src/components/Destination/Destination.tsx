@@ -14,7 +14,7 @@ export default function Destination () {
     const destination = destinations.find(i => i.name.toLowerCase() == (id as string)) ?? destinations[0];
     
     const handleClickDestination = (destination: any) => {
-        if (destination.name !== id) {
+        if (destination.name.toLowerCase() !== id) {
             setTransitionClass(styles['fade-out']); // Add fade-out class
             setTimeout(() => {
                 navigate(`/destination/${destination.name.toLowerCase()}`);

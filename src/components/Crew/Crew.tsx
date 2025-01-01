@@ -14,7 +14,7 @@ export default function Crew () {
     const crew = crews.find(i => i.name.toLowerCase().replace(" ", "-") == (id as string)) ?? crews[0];
   
     const handleSelectCrew = (crew: any) => {
-        if (crew.name !== id) {
+        if (crew.name.toLowerCase() !== id) {
             setTransitionClass(styles['fade-out']); // Add fade-out class
             setTimeout(() => {
                 navigate(`/crew/${crew.name.toLowerCase().replace(" ", "-")}`);     

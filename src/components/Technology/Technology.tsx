@@ -13,7 +13,7 @@ export default function Technology () {
     const technology = techonologies.find(i => i.name.toLowerCase().replace(" ", "-") == (id as string)) ?? techonologies[0];
 
     const handleSelectTechnology = (technology: any) => {
-        if (technology.name !== id) {
+        if (technology.name.toLowerCase() !== id) {
             setTransitionClass(styles['fade-out']); // Add fade-out class
             setTimeout(() => {
                 navigate(`/technology/${technology.name.toLowerCase().replace(" ", "-")}`);     
