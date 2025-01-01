@@ -24,7 +24,7 @@ export default function Header ({isMenuOpen, setIsMenuOpen}: HeaderProps) {
     }, [pathname]);
 
     const renderHeader = React.useMemo(() => {
-        return isMobile ? <MobileHeader setIsMenuOpen={setIsMenuOpen} navigateToHome={navigateToHome}/> : <MainHeader />;
+        return isMobile ? <MobileHeader setIsMenuOpen={setIsMenuOpen} navigateToHome={navigateToHome}/> : <MainHeader navigateToHome={navigateToHome}/>;
     }, [isMobile]);
 
 

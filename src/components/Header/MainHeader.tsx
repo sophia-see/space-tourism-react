@@ -11,7 +11,8 @@ export default function MainHeader ({ navigateToHome }: MainHeaderProps) {
 
     return (
         <>
-           <img className={styles.mobile__logo} src={"/assets/shared/logo.svg"} alt="SpaceX" onClick={navigateToHome}/>
+            <img className={styles.mobile__logo} src={"/assets/shared/logo.svg"} alt="SpaceX" onClick={navigateToHome}/>
+            <div className={styles.divider}></div>
             <ul className={styles.nav__list}>
                 {NAV_LINKS.map((link, index) => {
                     const tempPath = pathname == "/" ? "/home" : pathname

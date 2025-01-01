@@ -1,11 +1,17 @@
 @use '../../styles/mixins' as mixins;
 @use '../../styles/variables' as var;
 
+header, nav, ul, li {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; // Prevent padding from exceeding the container
+}
+
 header {
     position: relative;
     z-index: 1;
     color: white;
-    width: 100dvw;
+    width: 100%;
 }
 
 nav {
@@ -14,6 +20,10 @@ nav {
 
     @media screen and (min-width: 768px) {
         padding: 0;
+    }
+
+    @media screen and (min-width: 1024px) {
+        align-items: end;
     }
 }
 
@@ -51,6 +61,11 @@ li {
         padding: 0 40px;
         backdrop-filter: blur(80px);
         background-color: var.$white-5;
+        margin: 0;
+    }
+
+    @media screen and (min-width: 1024px) {
+        padding: 0 64px;
     }
 }
 
@@ -79,8 +94,11 @@ li {
 
 .nav__item:first-child {
     @media screen and (min-width: 768px) {
-        
-        margin-left: 40px;
+        margin-left: 77px;
+    }
+
+    @media screen and (min-width: 1024px) {
+        margin-left: 119px;
     }
 }
 
@@ -112,9 +130,27 @@ li {
     @media screen and (min-width: 768px) {
         margin: 24px 40px;
     }
+
+    @media screen and (min-width: 1024px) {
+        margin: 64px 64px 24px 64px;
+    }
 }
 
 .mobile__burger {
     width: 24px;
     height: 21px;
+}
+
+.divider {
+    @media screen and (min-width: 1024px) {
+        height: 1px; 
+        background-color: var.$white;
+        opacity: 25%;
+        width: auto;
+        position: absolute;
+        left: 168px;
+        right: 670px;
+        top: 84px;
+        z-index: 1;
+    }
 }

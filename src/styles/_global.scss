@@ -26,4 +26,12 @@
     letter-spacing: 2.4px;
     color: vars.$white;
     opacity: 25%;
+
+    @media screen and (min-width: 768px) {
+        font-size: 20px;
+    }
+
+    @media screen and (min-width: 1024px) {
+        font-size: 28px;
+    }
 }
