@@ -2,20 +2,31 @@ import { useNavigate, useParams } from 'react-router-dom';
 import styles from './Destination.module.scss';
 import data from '../../utils/data.json';
 import useDeviceSize from '../../hooks/useDeviceSize';
+import React from 'react';
 
 export default function Destination () {
     const { id } = useParams();
     const navigate = useNavigate();
     const { isDesktop } = useDeviceSize();
+    const [transitionClass, setTransitionClass] = React.useState('');
 
     const destinations = data.destinations;
     const destination = destinations.find(i => i.name.toLowerCase() == (id as string)) ?? destinations[0];
     
     const handleClickDestination = (destination: any) => {
         if (destination.name !== id) {
-            navigate(`/destination/${destination.name.toLowerCase()}`);     
+            setTransitionClass(styles['fade-out']); // Add fade-out class
+            setTimeout(() => {
+                navigate(`/destination/${destination.name.toLowerCase()}`);
+                setTransitionClass(styles['fade-in']); 
+            }, 150); 
         }
-    }
+    };
+
+    React.useEffect(() => {
+        const timeout = setTimeout(() => setTransitionClass(''), 150);
+        return () => clearTimeout(timeout);
+    }, [destination]);
 
     return (
         <div className={styles.container}>
@@ -24,7 +35,7 @@ export default function Destination () {
                 <span className='text-6'>PICK YOUR DESTINATION</span>
             </div>
             <div className={styles.destination__details}>
-                <img className={styles.destination__img} src={destination?.images.webp} alt={`image of ${destination}`} />
+                <img className={`${styles.destination__img} ${transitionClass}`} src={destination?.images.webp} alt={`image of ${destination}`} />
                 <div className={styles.destination__info}>
                     <div className={styles.destination__tabs}>
                         {destinations.map((item) => {
@@ -36,12 +47,12 @@ export default function Destination () {
                             </div>
                         })}
                     </div>
-                    <div className="text-2">{destination?.name?.toUpperCase()}</div>
-                    <div className={`text-9 ${isDesktop ? "" : "text-center"} text-blue-300`}>
+                    <div className={`text-2 ${transitionClass}`}>{destination?.name?.toUpperCase()}</div>
+                    <div className={`text-9 ${transitionClass} ${isDesktop ? "" : "text-center"} text-blue-300`}>
                         {destination?.description}
                     </div>
                     <div className={styles.divider}></div>
-                    <div className={styles.destination__stats}>
+                    <div className={`${styles.destination__stats} ${transitionClass}`}>
                         <div className={styles.destination__stat_item}>
                             <div className={`text-7 ${isDesktop ? "" : "text-center"} text-blue-300`}>AVG. DISTANCE</div>
                             <div className={`text-6-desktop ${isDesktop ? "" : "text-center"}`}>{destination.distance.toUpperCase()}</div>

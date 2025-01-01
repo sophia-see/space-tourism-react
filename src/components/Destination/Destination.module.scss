@@ -1,6 +1,23 @@
 @use '../../styles/mixins' as mixins;
 @use '../../styles/variables' as vars;
 
+$transition: all 0.15s ease-out;
+
+div {
+    transition: $transition;
+    opacity: 1;
+}
+
+.fade-out {
+    opacity: 0; /* Fades out the image */
+    // transform: scale(0.95); /* Optional: Add a shrinking effect */
+}
+
+.fade-in {
+    opacity: 1; /* Fades in the new image */
+    // transform: scale(1); /* Restores the scale */
+}
+
 .container {
     @include mixins.flex-column(center, start, 0);
     margin: 24px;
@@ -35,6 +52,9 @@
     width: 150px;
     height: 150px;
     margin: 26.5px 0;
+
+    transition: $transition;
+    opacity: 1;
 
     @media screen and (min-width: 768px) {
         width: 300px;
@@ -114,3 +134,4 @@
     background-color: vars.$white;     
     opacity: 25%;
 }
+
