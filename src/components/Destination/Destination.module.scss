@@ -67,6 +67,16 @@ div {
         height: 480px;
         margin: 0;
     }
+
+    &.fade-out {
+        opacity: 0; /* Fades out the image */
+        // transform: scale(0.95); /* Optional: Add a shrinking effect */
+    }
+    
+    &.fade-in {
+        opacity: 1; /* Fades in the new image */
+        // transform: scale(1); /* Restores the scale */
+    }
 }
 
 .destination__info {
